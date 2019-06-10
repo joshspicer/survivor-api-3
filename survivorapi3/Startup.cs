@@ -56,17 +56,17 @@ namespace survivorapi3
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseHsts();
-            }
+         //   else
+         //   {
+         //       app.UseHsts();
+         //   }
 
-            app.UseHttpsRedirection();
+         //   app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Survivor API v1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Survivor Northeastern API");
             });
         }
     }
