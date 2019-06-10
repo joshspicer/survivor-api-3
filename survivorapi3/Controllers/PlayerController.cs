@@ -47,7 +47,7 @@ namespace survivorapi3.Controllers
 
         // GET: api/PLAYER/{INDEX}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Player>> GetTodoItem(long id)
+        public async Task<ActionResult<Player>> GetPlayerItem(long id)
         {
             var todoItem = await _context.PlayerItems.FindAsync(id);
 
@@ -61,7 +61,7 @@ namespace survivorapi3.Controllers
 
         // POST: api/PLAYER
         [HttpPost]
-        public async Task<ActionResult<Player>> PostTodoItem(Player item)
+        public async Task<ActionResult<Player>> PostPlayerItem(Player item)
         {
             _context.PlayerItems.Add(item);
             await _context.SaveChangesAsync();
@@ -71,7 +71,7 @@ namespace survivorapi3.Controllers
 
         // PUT: api/PLAYER/{INDEX}
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutTodoItem(long id, Player item)
+        public async Task<IActionResult> PutPlayerItem(long id, Player item)
         {
             if (id != item.Id)
             {

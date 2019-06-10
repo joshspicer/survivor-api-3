@@ -29,10 +29,24 @@ namespace survivorapi3
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // In Memory Database (non-persistent upon relaunch)
             services.AddDbContext<SurvivorContext>(opt =>
          opt.UseInMemoryDatabase("Survivor"));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+
+            // Swashbuckle
+            services.AddSwaggerGen(c =>
+            {
+
+                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
+                {
+                    Title = "Survivor Northeastern API",
+                    Version = "v1"
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +63,11 @@ namespace survivorapi3
 
             app.UseHttpsRedirection();
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Survivor API v1");
+            });
         }
     }
 }

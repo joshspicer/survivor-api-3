@@ -54,7 +54,7 @@ namespace survivorapi3.Controllers
 
         // GET: api/Tribe/{INDEX}
         [HttpGet("{id}")]
-        public async Task<ActionResult<Tribe>> GetTodoItem(long id)
+        public async Task<ActionResult<Tribe>> GetTribeItem(long id)
         {
             var tItem = await _context.TribeItems.FindAsync(id);
 
@@ -68,7 +68,7 @@ namespace survivorapi3.Controllers
 
         // POST: api/Tribe
         [HttpPost]
-        public async Task<ActionResult<Tribe>> PostTodoItem(Tribe item)
+        public async Task<ActionResult<Tribe>> PostTribeItem(Tribe item)
         {
             _context.TribeItems.Add(item);
             await _context.SaveChangesAsync();
